@@ -1,9 +1,6 @@
 "use client";
-import { DSVRowArray } from 'd3';
-import { Data, Layout } from 'plotly.js-dist-min';
-// import Plotly from 'plotly.js-dist-min';
-// import * as d3 from 'd3';
-import { useEffect } from 'react';
+
+import Link from "next/link";
 
 export default function Map() {
 
@@ -58,7 +55,7 @@ export default function Map() {
                     https://share.google/QKN54X7YtYcRoRWZw
                 </a>
             </div>
-            <a
+            <Link
                 href="/"
                 style={{
                     position: 'fixed',
@@ -82,7 +79,7 @@ export default function Map() {
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#fff" viewBox="0 0 24 24">
                     <path d="M3 11.5V21a1 1 0 0 0 1 1h5v-6h6v6h5a1 1 0 0 0 1-1v-9.5a1 1 0 0 0-.293-.707l-9-9a1 1 0 0 0-1.414 0l-9 9A1 1 0 0 0 3 11.5z"/>
                 </svg>
-            </a>
+            </Link>
         </>
     );
 }

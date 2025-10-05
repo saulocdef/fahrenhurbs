@@ -1,8 +1,7 @@
 "use client";
 import { DSVRowArray } from 'd3';
-import { Data, Layout } from 'plotly.js-dist-min';
-// import Plotly from 'plotly.js-dist-min';
-// import * as d3 from 'd3';
+import { Layout } from 'plotly.js-dist-min';
+import Link from 'next/link';
 import { useEffect } from 'react';
 
 export default function Map() {
@@ -17,16 +16,10 @@ export default function Map() {
                 })
             };
 
-            function unpackStrings(rows: d3.DSVRowArray<string>, key: string): string[] {
-                return rows.map(function (row) {
-                    return row[key];
-                })
-            };
-
             function mountHoverLabel(rows: d3.DSVRowArray<string>): string[] {
-                let hoverLabels: string[] = [];
+                const hoverLabels: string[] = [];
                 rows.forEach(row => {
-                    let label = `<b>${row['nome_cidade']}</b> <br><br>` +
+                    const label = `<b>${row['nome_cidade']}</b> <br><br>` +
                         `<b>Trends in exposition growth:</b> <br>` +
                         `Increase in exposition: ${row['coef_pdays']} <br>` +
                         `Increase in hot days: ${row['coef_totDays']} <br>` +
@@ -114,7 +107,7 @@ export default function Map() {
                 }}
                 className="map-container"
             ></div>
-            <a
+            <Link
                 href="/"
                 style={{
                     position: 'fixed',
@@ -138,7 +131,7 @@ export default function Map() {
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#fff" viewBox="0 0 24 24">
                     <path d="M3 11.5V21a1 1 0 0 0 1 1h5v-6h6v6h5a1 1 0 0 0 1-1v-9.5a1 1 0 0 0-.293-.707l-9-9a1 1 0 0 0-1.414 0l-9 9A1 1 0 0 0 3 11.5z"/>
                 </svg>
-            </a>
+            </Link>
             <style jsx>{`
             @media (max-width: 600px) {
             .map-container {
