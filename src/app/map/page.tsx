@@ -103,35 +103,60 @@ export default function Map() {
                     width: '50%',
                     height: '100%',
                     display: 'block',
-                    
+
                 }}
                 className="map-container"
             ></div>
-            <Link
-                href="/"
-                style={{
-                    position: 'fixed',
-                    left: '24px',
-                    bottom: '24px',
-                    width: '56px',
-                    height: '56px',
-                    borderRadius: '12px',
-                    background: '#156b19',
-                    boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
-                    border: 'none',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    cursor: 'pointer',
-                    zIndex: 1000,
-                    textDecoration: 'none',
-                }}
-                aria-label="Home"
-            >
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#fff" viewBox="0 0 24 24">
-                    <path d="M3 11.5V21a1 1 0 0 0 1 1h5v-6h6v6h5a1 1 0 0 0 1-1v-9.5a1 1 0 0 0-.293-.707l-9-9a1 1 0 0 0-1.414 0l-9 9A1 1 0 0 0 3 11.5z"/>
-                </svg>
-            </Link>
+            <div style={{
+                display: 'flex',
+                flexDirection: 'row',
+                gap: '12px', // space between buttons
+                justifyContent: 'center', // centers children horizontally
+                alignItems: 'center', // centers children vertically
+                marginTop: '24px', // optional: adds space above
+            }}>
+                <Link
+                    href="/"
+                    style={{
+                        width: '56px',
+                        height: '56px',
+                        borderRadius: '12px',
+                        background: '#156b19',
+                        boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+                        border: 'none',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        cursor: 'pointer',
+                        textDecoration: 'none',
+                    }}
+                    aria-label="Home"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#fff" viewBox="0 0 24 24">
+                        <path d="M3 11.5V21a1 1 0 0 0 1 1h5v-6h6v6h5a1 1 0 0 0 1-1v-9.5a1 1 0 0 0-.293-.707l-9-9a1 1 0 0 0-1.414 0l-9 9A1 1 0 0 0 3 11.5z" />
+                    </svg>
+                </Link>
+                <Link
+                    href="/strategies"
+                    style={{
+                        width: '100px',
+                        height: '56px',
+                        borderRadius: '12px',
+                        background: '#156b19',
+                        boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+                        border: 'none',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        cursor: 'pointer',
+                        textDecoration: 'none',
+                    }}
+                    aria-label="Home"
+                >
+                    <span className='text-white text-bold'>Strategies</span>
+                </Link>
+            </div>
+
             <style jsx>{`
             @media (max-width: 600px) {
             .map-container {
