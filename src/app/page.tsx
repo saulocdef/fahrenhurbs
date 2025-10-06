@@ -46,6 +46,17 @@ export default function Home() {
               click here
             </a>
           </p>
+          <p className="text-xs tracking-[-.01em] flex justify-center">
+            To see our paper with details of this project,
+            <a
+              href="/FAHRENHurbs_Paper.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline text-green-400 hover:text-green-600 ml-1"
+            >
+              click here
+            </a>
+          </p>
         </div>
       </main>
     </div>
