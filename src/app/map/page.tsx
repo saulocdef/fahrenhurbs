@@ -21,8 +21,8 @@ export default function Map() {
                 rows.forEach(row => {
                     const rowString = (+row['coef_pdays']).toLocaleString();
                     const label = `<b>${row['nome_cidade']}</b> <br><br>` +
-                        `<b>Trends in exposition growth:</b> <br>` +
-                        `Increase in exposition: ${rowString} people/year <br>` +
+                        `<b>Trends in exposure growth:</b> <br>` +
+                        `Increase in exposure: ${rowString} person-days/year <br>` +
                         `Increase in hot days: ${row['coef_totDays']} days/year<br>` +
                         `Increase main cause: ${getPrincipalCausa(parseFloat(row['coef_attrib_norm']))} <br>`;
                     hoverLabels.push(label);
@@ -47,7 +47,7 @@ export default function Map() {
                     sizeref: Math.max(...unpackNumbers(rows, 'coef_pdays')) / (30),
                     color: unpackNumbers(rows, 'coef_pdays'),
                     colorscale: 'Reds',
-                    showscale: true,
+                    showscale: false,
                     symbol: 'circle',
                     colorbar: {
                         x: 0.5, // center horizontally
@@ -96,10 +96,18 @@ export default function Map() {
                 background: #ffeed8;
             }
             `}</style>
-            <div className="rounded-md bg-green-700 text-white py-2 px-8 mb-10 mt-10 text-center max-w-xl mx-auto">
+            <div className="rounded-md bg-green-700 text-white py-2 px-8 mt-10 text-center max-w-xl mx-auto">
                 <h1 className="font-bold text-center">
                     Growth rate of exposure to extreme heat
                 </h1>
+            </div>
+            <div className="rounded-md py-4 px-4 mt-4 mb-10 max-w-xl mx-auto text-justify" style={{ backgroundColor: '#ccbead46' }}>
+                <p className="text-xs mt-2" style={{ color: '#595c59ff' }}>
+                    The map shows how fast more people are getting exposed to extreme heat events in Brazilian cities and the main reason for the rise — whether it is more hot days or population growth.
+                </p>
+                <p className="text-xs mt-2" style={{ color: '#595c59ff' }}>
+                    The exposure value was calculated by multiplying the number of hot days in each extreme heat event (sequence of days with temperatures above 28ºC) by the current population of each city.
+                </p>
             </div>
             <div
                 id="map"

@@ -26,12 +26,12 @@ export default function Map() {
                 <div className='pl-4 mb-8 text-sm/6'>
                     Find out more at:
                     <a
-                        href="https://share.google/QKN54X7YtYcRoRWZw"
+                        href="https://unhabitat.org"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-blue-600 underline"
                     >
-                        https://share.google/QKN54X7YtYcRoRWZw
+                        https://unhabitat.org
                     </a>
                 </div>
                 <div className="rounded-md bg-green-700 text-white py-2 px-8 mb-10 mt-10 text-center max-w-xl mx-auto">
