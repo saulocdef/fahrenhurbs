@@ -15,7 +15,7 @@ export default function Home() {
             priority
           />
         </div>
-        <div className="text-sm/6 text-center sm:text-left text-white mt-24">
+        <div className="text-sm/6 text-center sm:text-left text-white mt-20">
             <div className="tracking-[-.01em] text-3xl font-bold flex justify-center">
             YOUR FIRST TIME{" "}
             </div>
@@ -30,6 +30,22 @@ export default function Home() {
               Start journey
             </a>
             </div>
+        </div>
+        <div className="text-sm/6 text-center sm:text-left text-white max-w-lg mt-10">
+          <p className="tracking-[-.01em] flex justify-center">
+            FAHRENHurb is a platform dedicated to understanding and addressing the impacts of climate change on urban areas. Our mission is to provide data-driven insights and strategies for building more resilient cities.
+          </p>
+            <p className="text-xs tracking-[-.01em] flex justify-center mt-10">
+              If you would like to see a static version of our proposal, {" "}
+              <a
+              href="https://fahrenhurbs.my.canva.site/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline text-green-400 hover:text-green-600 ml-1"
+              >
+              click here
+              </a>
+            </p>
         </div>
       </main>
     </div>

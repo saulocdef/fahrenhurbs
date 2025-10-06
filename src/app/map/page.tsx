@@ -19,10 +19,11 @@ export default function Map() {
             function mountHoverLabel(rows: d3.DSVRowArray<string>): string[] {
                 const hoverLabels: string[] = [];
                 rows.forEach(row => {
+                    const rowString = (+row['coef_pdays']).toLocaleString();
                     const label = `<b>${row['nome_cidade']}</b> <br><br>` +
                         `<b>Trends in exposition growth:</b> <br>` +
-                        `Increase in exposition: ${row['coef_pdays']} <br>` +
-                        `Increase in hot days: ${row['coef_totDays']} <br>` +
+                        `Increase in exposition: ${rowString} people/year <br>` +
+                        `Increase in hot days: ${row['coef_totDays']} days/year<br>` +
                         `Increase main cause: ${getPrincipalCausa(parseFloat(row['coef_attrib_norm']))} <br>`;
                     hoverLabels.push(label);
                 });
@@ -42,8 +43,8 @@ export default function Map() {
                 marker: {
                     size: unpackNumbers(rows, 'coef_pdays'),
                     sizemode: 'diameter',
-                    sizemin: 3,
-                    sizeref: Math.max(...unpackNumbers(rows, 'coef_pdays')) / (50),
+                    sizemin: 4,
+                    sizeref: Math.max(...unpackNumbers(rows, 'coef_pdays')) / (30),
                     color: unpackNumbers(rows, 'coef_pdays'),
                     colorscale: 'Reds',
                     showscale: true,
@@ -58,7 +59,10 @@ export default function Map() {
                     },
                 },
                 text: mountHoverLabel(rows),
-                hoverinfo: 'text'
+                hoverinfo: 'text',
+                hoverlabel: {
+                    align: 'left',
+                },
             }];
 
             const layout: Partial<Layout> = {
@@ -77,6 +81,7 @@ export default function Map() {
                 hovermode: 'closest',
                 margin: { r: 0, t: 0, b: 0, l: 0 },
                 paper_bgcolor: '#ffeed8',
+                height: 600,
             };
 
             Plotly.newPlot('map', data, layout);
@@ -91,8 +96,8 @@ export default function Map() {
                 background: #ffeed8;
             }
             `}</style>
-            <div className="rounded-md bg-green-700 text-white py-2 px-8 mb-10 mt-20 text-center max-w-xl mx-auto">
-                <h1 className="text-2xl font-bold text-center">
+            <div className="rounded-md bg-green-700 text-white py-2 px-8 mb-10 mt-10 text-center max-w-xl mx-auto">
+                <h1 className="font-bold text-center">
                     Growth rate of exposure to extreme heat
                 </h1>
             </div>
@@ -107,6 +112,17 @@ export default function Map() {
                 }}
                 className="map-container"
             ></div>
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '24px', marginTop: '10px' }}>
+                <img
+                    src="/legenda.jpg"
+                    alt="Legend"
+                    style={{
+                        maxWidth: '300px',
+                        width: '80%',
+                        borderRadius: '8px',
+                    }}
+                />
+            </div>
             <div style={{
                 display: 'flex',
                 flexDirection: 'row',
@@ -114,6 +130,7 @@ export default function Map() {
                 justifyContent: 'center', // centers children horizontally
                 alignItems: 'center', // centers children vertically
                 marginTop: '24px', // optional: adds space above
+                marginBottom: '40px', // optional: adds space below
             }}>
                 <Link
                     href="/"
